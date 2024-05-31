@@ -7,12 +7,15 @@ import MyOrders from "../MyOrders";
 import NotFound from "../NotFound";
 import SignIn from "../SignIn";
 import Navbar from "../../Components/Navbar";
+import useMobile from "../../Utils/useMobile";
 import CheckoutSideMenu from "../../Components/CheckoutSideMenu";
+import ProductDetailPage from "../../Components/ProductDetailPage";
 import "./App.css";
 
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: "/", element: <Home /> },
+    { path: "/product-detail", element: <ProductDetailPage /> },
     { path: "/clothes", element: <Home /> },
     { path: "/electronics", element: <Home /> },
     { path: "/furnitures", element: <Home /> },
@@ -31,13 +34,14 @@ const AppRoutes = () => {
 };
 
 const App = () => {
+  const isMobile = useMobile();
   return (
     <>
       <ShoppingCartProvider>
         <BrowserRouter>
           <AppRoutes />
           <Navbar />
-          <CheckoutSideMenu />
+          {!isMobile && <CheckoutSideMenu />}
         </BrowserRouter>
       </ShoppingCartProvider>
     </>

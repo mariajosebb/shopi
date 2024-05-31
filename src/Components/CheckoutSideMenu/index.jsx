@@ -18,7 +18,7 @@ const CheckoutSideMenu = () => {
 
   const handleCheckout = () => {
     const orderToAdd = {
-      date: "02.05.24",
+      date: new Date().toDateString(),
       products: context.cartProducts,
       totalProducts: context.cartProducts.length,
       totalPrice: totalPrice(context.cartProducts),
@@ -62,7 +62,7 @@ const CheckoutSideMenu = () => {
             ${totalPrice(context.cartProducts)}
           </span>
         </p>
-        <Link to='/my-orders/last'>
+        <Link to="/my-orders/last">
           <button
             className="w-full bg-black py-3 rounded-lg text-white"
             onClick={() => handleCheckout()}
