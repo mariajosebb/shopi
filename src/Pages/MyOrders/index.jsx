@@ -8,20 +8,22 @@ function MyOrders() {
   const context = useContext(ShoppingCartContext);
   return (
     <Layout>
-      <div className="mb-4">
-        <h1 className="font-medium text-xl"> My Orders </h1>
-      </div>
+      <div className="min-h-[600px]">
+        <div className="mb-4">
+          <h1 className="font-medium text-xl"> My Orders </h1>
+        </div>
 
-      {context.order.map((order, index) => (
-        <Link key={index} to={`/my-orders/${index}`}>
-          <OrdersCard
-            key={order.id}
-            totalPrice={order.totalPrice}
-            totalProducts={order.totalProducts}
-            date={order.date}
-          />
-        </Link>
-      ))}
+        {context.order.map((order, index) => (
+          <Link key={index} to={`/my-orders/${index}`}>
+            <OrdersCard
+              key={order.id}
+              totalPrice={order.totalPrice}
+              totalProducts={order.totalProducts}
+              date={order.date}
+            />
+          </Link>
+        ))}
+      </div>
     </Layout>
   );
 }
