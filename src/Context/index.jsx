@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import mock from "../Utils/variables";
 
 export const ShoppingCartContext = createContext();
 
@@ -37,9 +38,7 @@ export const ShoppingCartProvider = ({ children }) => {
   const [searchByCategory, setSearchByCategory] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.escuelajs.co/api/v1/products")
-      .then((response) => response.json())
-      .then((data) => setItems(data));
+    setItems(mock);
   }, []);
 
   const filteredItemsByTitle = (items, searchByTitle) => {
